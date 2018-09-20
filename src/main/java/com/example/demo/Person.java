@@ -15,6 +15,16 @@ public class Person  implements Serializable {
 
     private String name;
 
+    private transient int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getAge() {
         return age;
     }
@@ -41,12 +51,12 @@ public class Person  implements Serializable {
     }
 
 
-
     @Override
     public String toString() {
         return "Person{" +
                 "age='" + age + '\'' +
                 ", name='" + name + '\'' +
+                ", id=" + id +
                 '}';
     }
 }

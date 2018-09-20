@@ -30,6 +30,7 @@ public class SerializeDemo {
         Person person = new Person();
         person.setAge("18");
         person.setName("xuyagnyang");
+        person.setId(1);
         ObjectOutputStream outputStream;
         try {
             outputStream = new ObjectOutputStream(new FileOutputStream(new File("person")));
