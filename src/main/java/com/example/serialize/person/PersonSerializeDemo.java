@@ -1,13 +1,17 @@
-package com.example.demo;
+package com.example.serialize.person;
 
 import java.io.*;
 
 /**
- * 序列化和反序列化
+ * 静态变量的序列化
+ * 序列化并不保存静态变量的状态
+ *
+ * Transient关键字
+ * transient关键字表示指定属性不参与序列化
  *
  * @author uinnova
  */
-public class SerializeDemo {
+public class PersonSerializeDemo {
 
 
     public static void main(String[] args) {

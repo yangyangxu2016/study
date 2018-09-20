@@ -1,8 +1,14 @@
-package com.example.demo.parent;
+package com.example.serialize.user;
 
 import java.io.*;
 
-public class SuperDemo {
+/**
+ * 父子类问题
+ * 如果父类没有实现序列化，而子类实现列序列化。那么父类中的成员没办法做序列化操作
+ *
+ * @author uinnova
+ */
+public class UserSerializeDemo {
 
     public static void main(String[] args) {
 

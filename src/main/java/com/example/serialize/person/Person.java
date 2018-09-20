@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.serialize.person;
 
 import java.io.Serializable;
 

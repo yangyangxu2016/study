@@ -1,4 +1,4 @@
-package com.example.demo.parent;
+package com.example.serialize.user;
 
 import java.io.Serializable;
 
