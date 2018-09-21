@@ -10,6 +10,7 @@ import java.io.*;
  */
 public class UserSerializeDemo {
 
+    //SuperUser{age='null'}
     public static void main(String[] args) {
 
         serializePerson();

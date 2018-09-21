@@ -16,27 +16,37 @@ import java.io.IOException;
 public class CloneDemo {
 
 
+    /**
+     * Student{age=18, name='mufeng', teacher=Teacher{name='nuc'}}
+     * Student{age=18, name='mufeng', teacher=Teacher{name='second'}}
+     * Student{age=18, name='mufeng', teacher=Teacher{name='third'}}
+     * false
+     * @param args
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         Teacher teacher = new Teacher();
-        teacher.setName("first");
+        teacher.setName("nuc");
 
         Student student = new Student();
         student.setName("mufeng");
         student.setAge(18);
         student.setTeacher(teacher);
 
-
-
-
-
-
-        //克隆一个对象
-        Student student2 = (Student) student.deepClone();
         System.out.println(student);
 
+
+        Student student1 = (Student) student.clone();
+        student1.getTeacher().setName("second");
+        System.out.println(student1);
+
+
+        //深度克隆一个对象
+        Student student2 = (Student) student.deepClone();
         //深度克隆后改变对象引用的对象，原对象不会变化，表示此克隆为深度克隆
-        student2.getTeacher().setName("second");
+        student2.getTeacher().setName("third");
         System.out.println(student2);
 
         System.out.println(student == student2);

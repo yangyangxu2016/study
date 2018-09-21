@@ -5,7 +5,7 @@ import java.io.*;
 /**
  * @author uinnova
  */
-public class Student implements Serializable {
+public class Student implements Serializable ,Cloneable {
 
     private static final long serialVersionUID = 1252491839461580718L;
 
@@ -68,5 +68,15 @@ public class Student implements Serializable {
         return ois.readObject();
     }
 
+    @Override
+    public Object clone() {
+        Student stu = null;
+        try{
+            stu = (Student)super.clone();
+        }catch(CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return stu;
+    }
 
 }
