@@ -64,7 +64,7 @@ public class MasterSelector {
             //表示master已经存在
             UserCenter userCenter = zkClient.readData(MASTER_PATH, true);
             if (userCenter == null) {
-                checkIsMaster();
+                chooseMaster();
             } else {
                 master = userCenter;
             }
@@ -73,6 +73,7 @@ public class MasterSelector {
 
     private void releaseMaster() {
         if (checkIsMaster()) {
+            System.out.println("释放master");
             zkClient.delete(MASTER_PATH);
         }
     }
