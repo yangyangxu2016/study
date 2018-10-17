@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>显示与隐藏</title>
+    <style>
+         a{
+            display: block;
+            width: 448px;
+            height: 252px;
+            margin: 0 auto;
+            position: absolute;
+        }
+        .mask{
+            width: 100%;
+            height: 100%;
+            background:rgba(0,0,0,0.4) url(images/arr.png) no-repeat center center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            visibility: hidden;
+        }
+/*鼠标放在a 身上，是a 里面的 mask 出来*/
+       a:hover .mask{
+            visibility: visible; /*显示出来*/
+       }
+
+    </style>
+</head>
+<body>
+        <a href="#">
+        <img src="images/tudou.jpg" width="448px" height="252px" class="tudou">
+        <div class="mask"></div>
+        </a>
+</body>
+</html>

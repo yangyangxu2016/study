@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>绝对定位</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            width: 2000px;
+        }
+        div{
+           width: 100PX;
+           height: 100px;
+        }
+        .top {
+            background: pink; 
+            position: absolute;  /*定位模式*/
+            top: 100px;     /*边偏移*/
+            left: 100px;
+        }
+        .bottom{
+            background: purple;
+        }
+        /*绝对位置不占位置，跟浮动一样,以浏览器的当前屏幕为基准点对齐*/
+    </style>
+</head>
+<body>
+
+    <div class="top" >top1</div>
+    <div class="bottom">bottom2</div>
+    
+<p>
+清除浮动:解决父级元素因为子元素浮动引起内部高度为0的问题
+1. 在float的最后添加一个<div style="clear: both;"></div>>
+2.在父级块添加 overflow=hidden
+3.使用clearfix 
+</p>
+
+</body>
+</html>
