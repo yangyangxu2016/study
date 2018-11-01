@@ -1,18 +1,17 @@
-package com.example.netty.bio;
+package com.example.netty.fnio;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- *Bio的主要问题在于每当有一个新的客户端请求接入时，服务器必须创建一个新的线程，一个线程只能处理一个客户端连接，
- * 当成千上万个客户端并发是，往往造成线程资源耗尽，导致堆栈溢出
+ *伪异步通信IO采用了线程池实现，避免了为每一个请求都创建一个线程造成线程资源耗尽问题，但是由于底层依然采用阻塞IO，因此无法从根本上解决问题
  */
 public class TimeServer {
 
 
     public static void main(String[] args) throws IOException {
-        int port = 8081;
+        int port = 8082;
         if (args != null && args.length > 0) {
             try {
                 port = Integer.parseInt(args[1]);
@@ -25,9 +24,10 @@ public class TimeServer {
             server = new ServerSocket(port);
             System.out.println("the server is start in port: " + port);
             Socket socket = null;
+            TimeServerHandlerExecutePool singleExecute = new TimeServerHandlerExecutePool(50, 10000);//创建IO线程池
             while (true) {
                 socket = server.accept();
-                new Thread(new TimeServerHandler(socket)).start();
+                singleExecute.executor(new Thread(new TimeServerHandler(socket)));
             }
         } finally {
             if (server != null) {
