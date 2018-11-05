@@ -6,9 +6,9 @@ import io.netty.handler.codec.http.*;
 
 import java.io.UnsupportedEncodingException;
 
-import static io.netty.handler.codec.http.HttpHeaderNames.CONTENT_LENGTH;
-import static io.netty.handler.codec.http.HttpHeaderNames.EXPIRES;
-import static io.netty.handler.codec.rtsp.RtspHeaderNames.CONNECTION;
+//import static io.netty.handler.codec.http.HttpHeaderNames.CONTENT_LENGTH;
+//import static io.netty.handler.codec.http.HttpHeaderNames.EXPIRES;
+//import static io.netty.handler.codec.rtsp.RtspHeaderNames.CONNECTION;
 import static org.jboss.netty.handler.codec.http.HttpHeaders.Names.CONTENT_TYPE;
 
 public class GPResponse {
@@ -37,10 +37,10 @@ public class GPResponse {
 
 
             response.headers().set(CONTENT_TYPE, "text/json");
-            response.headers().set(CONTENT_LENGTH, response.content().readableBytes());
-            response.headers().set(EXPIRES, 0);
+//            response.headers().set(CONTENT_LENGTH, response.content().readableBytes());
+//            response.headers().set(EXPIRES, 0);
             if (HttpHeaders.isKeepAlive(r)) {
-                response.headers().set(CONNECTION, HttpHeaders.Values.KEEP_ALIVE);
+//                response.headers().set(CONNECTION, HttpHeaders.Values.KEEP_ALIVE);
             }
             ctx.write(response);
         } finally {
