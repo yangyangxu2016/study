@@ -40,7 +40,7 @@ public class CuratorApiOperatorDemo {
 //                inBackground(new BackgroundCallback() {
 //                    @Override
 //                    public void processResult(CuratorFramework client, CuratorEvent event) throws Exception {
-//                        System.out.println(Thread.currentThread().getName() + "-->result" + event.getResultCode() +
+//                        System.out.println(ThreadA.currentThread().getName() + "-->result" + event.getResultCode() +
 //                                "--->" + event.getType());
 //                        countDownLatch.countDown();
 //                    }
