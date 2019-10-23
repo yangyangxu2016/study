@@ -1,5 +1,7 @@
 package com.example.Leetcode;
 
+import java.util.Arrays;
+
 /**
  * @author xuyangyang
  */
@@ -10,35 +12,40 @@ public class Sort {
         int[] a = {4, 5, 6, 1, 2, 3};
         System.out.println("===待排序数据: {4, 5, 6, 1, 2, 3}===========");
         System.out.println();
-        int[] intsa = BubbleSort(a);
+
+
+        BubbleSort(a);
         System.out.println("===========冒泡排序=================");
-        for (int i : intsa) {
-            System.out.print(i);
-            System.out.print(" ");
-        }
+        System.out.println(Arrays.toString(a));
+        System.out.println();
 
         int[] b = {4, 5, 6, 1, 2, 3};
-        int[] intsb = insertSort(b);
-        System.out.println();
+        insertSort(b);
         System.out.println("===========插入排序================");
+        System.out.println(Arrays.toString(b));
         System.out.println();
-        for (int i : intsb) {
-            System.out.print(i);
-            System.out.print(" ");
-        }
-        int[] c = {4, 5, 6, 1, 2, 3};
-        int[] intsc = selectionSort(c);
-        System.out.println();
-        System.out.println("===========插入排序================");
-        System.out.println();
-        for (int i : intsc) {
-            System.out.print(i);
-            System.out.print(" ");
-        }
 
+        int[] c = {4, 5, 6, 1, 2, 3};
+        selectionSort(c);
+        System.out.println("===========选择排序================");
+        System.out.println(Arrays.toString(c));
+        System.out.println();
+
+        int[] d = {4, 5, 6, 1, 2, 3};
+        mergeSort(d);
+        System.out.println("===========归并排序================");
+        System.out.println(Arrays.toString(d));
+        System.out.println();
+
+        int[] e = {4, 5, 6, 1, 2, 3};
+        quickSort(e, 0, e.length - 1);
+        System.out.println("===========归并排序================");
+        System.out.println(Arrays.toString(e));
+        System.out.println();
     }
 
-    private static int[] selectionSort(int[] a) {
+
+    private static void selectionSort(int[] a) {
 
         for (int i = 0; i < a.length; i++) {
             int value = a[i];
@@ -55,7 +62,7 @@ public class Sort {
 
         }
 
-        return a;
+
     }
 
     /**
@@ -100,5 +107,79 @@ public class Sort {
         return a;
     }
 
+
+    public static void mergeSort(int[] a) {
+        mergeSort(a, 0, a.length - 1);
+    }
+
+    private static void mergeSort(int[] a, int left, int right) {
+//        递归终止条件
+        if (left < right) {
+//          寻找中点
+            int mid = (left + right) / 2;
+//          左边数组
+            mergeSort(a, left, mid);
+//          右边数组
+            mergeSort(a, mid + 1, right);
+//          合并数组
+            merge(a, left, mid, right);
+        }
+    }
+
+    private static void merge(int[] a, int left, int mid, int right) {
+//         申请临时数组
+        int[] temp = new int[right - left + 1];
+
+        int i = left;
+        int j = mid + 1;
+        int k = 0;
+        while (i <= mid && j <= right) {
+            if (a[i] <= a[j]) {
+                temp[k++] = a[i++];
+            } else {
+                temp[k++] = a[j++];
+            }
+        }
+//      拷贝剩余数组
+        while (i <= mid) {
+            temp[k++] = a[i++];
+        }
+
+        while (j <= right) {
+            temp[k++] = a[j++];
+        }
+
+        k = 0;
+        while (left <= right) {
+            a[left++] = temp[k++];
+        }
+    }
+
+
+    private static void quickSort(int[] a, int left, int right) {
+        if (left >= right) {
+            return;
+        }
+        int q = parition(a, left, right);
+        quickSort(a, left, q - 1);
+        quickSort(a, q + 1, right);
+    }
+
+    private static int parition(int[] a, int left, int right) {
+        int i = left;
+        int prvot = right;
+        for (int j = left; j <= right - 1; j++) {
+            if (a[j] < a[prvot]) {
+                int temp = a[j];
+                a[j] = a[i];
+                a[i] = temp;
+                i = i + 1;
+            }
+        }
+        int temp = a[prvot];
+        a[prvot] = a[i];
+        a[i] = temp;
+        return i;
+    }
 
 }
