@@ -66,34 +66,163 @@ public class Bsearch {
     }
 
 
-    public static void main(String[] args) {
-        int[] a = {8, 11, 19, 23, 27, 33, 45, 55, 67, 98};
-        int binary = bSearchCircle(a, 19);
-        int binary1 = bSearchRecursion(a, 19);
-        System.out.println(binary);
-        System.out.println(binary1);
-        System.out.println(mySqrt(5));
-    }
+    public static float mySqrt(int x) {
+        float mid = 0;
 
-    public static float  mySqrt(int x) {
-        float  mid = 0;
-
-            float low = 0;
-            float high = x;
-            while (Math.abs(high - low) > 1e-6) {
-                mid = (high - low) / 2 + low;
-                float  temp = mid * mid;
-                if ((temp - x) > 1e-6) {
-                    high = mid;
-                } else if ((temp - x) < 1e-6) {
-                    low = mid;
-                } else {
-                    return mid;
-                }
+        float low = 0;
+        float high = x;
+        while (Math.abs(high - low) > 1e-6) {
+            mid = (high - low) / 2 + low;
+            float temp = mid * mid;
+            if ((temp - x) > 1e-6) {
+                high = mid;
+            } else if ((temp - x) < 1e-6) {
+                low = mid;
+            } else {
+                return mid;
             }
+        }
 
         return mid;
     }
 
 
+    public static int bserach(int[] a, int value) {
+
+        int low = 0;
+        int high = a.length - 1;
+        while (low <= high) {
+
+            int mid = (high - low) / 2 + low;
+            if (a[mid] == value) {
+                return mid;
+            } else if (a[mid] > value) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+
+        }
+        return -1;
+    }
+
+    /**
+     * 查找第一个值等于给定值的元素
+     *
+     * @param a
+     * @param value
+     * @return
+     */
+    public static int bserachFirst(int[] a, int value) {
+
+        int low = 0;
+        int high = a.length - 1;
+        while (low <= high) {
+            int mid = (high - low) / 2 + low;
+            if (a[mid] < value) {
+                low = mid + 1;
+            } else if (a[mid] > value) {
+                high = mid - 1;
+            } else {
+                if ((mid == 0) || (a[mid - 1] != value)) {
+                    return mid;
+                } else {
+                    high = mid - 1;
+                }
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 查找最后一个值等于给定值的元素
+     *
+     * @param a
+     * @param value
+     * @return
+     */
+    public static int bserachLast(int[] a, int value) {
+
+        int low = 0;
+        int high = a.length - 1;
+        while (low <= high) {
+            int mid = (high - low) / 2 + low;
+            if (a[mid] < value) {
+                low = mid + 1;
+            } else if (a[mid] > value) {
+                high = mid - 1;
+            } else {
+                if ((mid == a.length - 1) || (a[mid + 1] != value)) {
+                    return mid;
+                } else {
+                    low = mid + 1;
+                }
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 查找第一个大于等于给定值的元素
+     *
+     * @param a
+     * @param value
+     * @return
+     */
+    public static int bserachFristMore(int[] a, int value) {
+
+        int low = 0;
+        int high = a.length - 1;
+        while (low <= high) {
+            int mid = (high - low) / 2 + low;
+            if (a[mid] >= value) {
+                if ((mid == 0) || (a[mid - 1] < value)) {
+                    return mid;
+                } else {
+                    high = mid - 1;
+                }
+            } else {
+                low = mid + 1;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 查找最后一个小于等于给定值的元素
+     *
+     * @param a
+     * @param value
+     * @return
+     */
+    public static int bserachFristLess(int[] a, int value) {
+
+        int low = 0;
+        int high = a.length - 1;
+        while (low <= high) {
+            int mid = (high - low) / 2 + low;
+            if (a[mid] <= value) {
+                if ((mid == a.length - 1) || (a[mid + 1] > value)) {
+                    return mid;
+                } else {
+                    low = mid + 1;
+                }
+            } else {
+                high = mid - 1;
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        int[] a = {8, 11, 19, 23, 27, 33, 45, 55, 67, 98};
+        int[] b = {1, 3, 4, 5, 6, 8, 8, 8, 11, 18};
+//        int binary = bSearchCircle(a, 19);
+//        System.out.println(binary);
+//        int binary1 = bSearchRecursion(a, 19);
+//        System.out.println(binary1);
+        System.out.println(bserachFristLess(b, 8));
+
+//        System.out.println(mySqrt(5));
+    }
 }
