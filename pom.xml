@@ -4,12 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>study</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>demo</name>
-    <description>Demo project for Spring Boot</description>
+    <name>study</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -136,8 +135,6 @@
             <version>1.9.13</version>
         </dependency>
 
-
-
         <!---->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -156,6 +153,15 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+
+    <repositories>
+        <repository>
+            <id>uino-releases</id>
+            <name>Releases of Uino</name>
+            <url>https://mvn.udolphin.com/repository/i18n-releases/</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
