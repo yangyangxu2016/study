@@ -1,6 +1,13 @@
 package com.example.Leetcode;
 
+import org.apache.commons.io.FileUtils;
+import sun.misc.BASE64Decoder;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -134,16 +141,70 @@ public class Sort1 {
     }
 
 
-    public static void main(String[] args) {
-        int[] a = {6, 5, 4, 3,2,1};
+    /**
+     * https://github.com/wangzheng0822/algo/blob/master/java/12_sorts/QuickSort.java
+     *
+     * @param a
+     */
+    private static void quickSort(int[] a) {
+        if (a == null || a.length <= 1) {
+            return;
+        }
+        quick(a, 0, a.length - 1);
+    }
+
+    private static void quick(int[] a, int p, int r) {
+        if (p >= r) {
+            return;
+        }
+        //获取分区点,
+        int q = partition(a, p, r);
+        quick(a, p, q - 1);
+        quick(a, q + 1, r);
+
+    }
+
+    /**
+     * 学习选择排序，分为已排序区间和未排序区间，
+     *
+     * @param a
+     * @param p
+     * @param r
+     * @return
+     */
+    private static int partition(int[] a, int p, int r) {
+        int pivot = a[r];
+        int i = p;
+        for (int j = p; j < r; j++) {
+
+            if (a[j] < pivot) {
+                swap(a, i, j);
+                i = i + 1;
+            }
+        }
+        swap(a, i, r);
+        System.out.println("i=" + i);
+        return i;
+    }
+
+    private static void swap(int[] a, int i, int j) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+
+    public static void main(String[] args)  {
+        int[] a = {6, 5, 4, 3, 2, 1};
 //        bubbleSort(a);
 //        Arrays.stream(a).forEach(x -> System.out.println(x));
 //        selectSort(a);
 //        insertBubble(a);
-        mergeBubble(a);
+//        mergeBubble(a);
+        quickSort(a);
         Arrays.stream(a).forEach(x -> System.out.println(x));
 
+
+
+
     }
-
-
 }
