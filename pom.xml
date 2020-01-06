@@ -154,15 +154,6 @@
         </dependency>
     </dependencies>
 
-
-    <repositories>
-        <repository>
-            <id>uino-releases</id>
-            <name>Releases of Uino</name>
-            <url>https://mvn.udolphin.com/repository/i18n-releases/</url>
-        </repository>
-    </repositories>
-
     <build>
         <plugins>
             <plugin>

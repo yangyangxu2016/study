@@ -24,6 +24,8 @@ public class Bsearch1 {
         log.info("递归二分：{}", bSearchRecursion(a, 19));
 //        log.info("查找最后一个小于等于给定值的元素 :  {}", bserachFristLess(b, 8));
         log.info("求一个数的平方根？ 要求精确到小数点后 6 位 :  {}", mySqrt(10));
+
+        log.info("查找第一个值等于给定值的元素：");
     }
 
     /**
@@ -112,5 +114,9 @@ public class Bsearch1 {
         }
 
     }
+
+
+
+
 
 }
