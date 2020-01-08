@@ -1,6 +1,5 @@
 package com.example.Leetcode;
 
-import com.uino.I18n;
 
 /**
  * 二分查找，它的时间复杂度是 O(logn)。
@@ -224,13 +223,6 @@ public class Bsearch {
 //        int binary1 = bSearchRecursion(a, 19);
 //        System.out.println(binary1);
         System.out.println(bserachFristLess(b, 8));
-
-        I18n.Language defaultLanguage = I18n.getDefaultLanguage();// return: Language.zh
-        System.out.println(defaultLanguage );
-        String dmv_appwall_no_alarm = I18n.get("DMV_APPWALL_NO_ALARM");
-        System.out.println(dmv_appwall_no_alarm);
-
-
         System.out.println(mySqrt(10));
     }
 }
