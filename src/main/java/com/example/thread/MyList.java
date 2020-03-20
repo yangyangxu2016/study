@@ -38,10 +38,10 @@ public class MyList {
     };
 
     public static void main(String[] args) {
-        Thread a = new Thread(MyList.runnableA);
-        Thread b = new Thread(MyList.runnableB);
-        a.start();
-        b.start();
+            String loginCode="33e5b1d28f5c6333d8f9058e87fa3b2955efa212d64f2f23627f7b2795a568009964094a2bb17c952e422d077084a1b379fcc40508758e28f7a3096bebdce5ad";
+            int codelen = loginCode.getBytes().length;
+            System.out.println(codelen);
+
     }
 
 }
