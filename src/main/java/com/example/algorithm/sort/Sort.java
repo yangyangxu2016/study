@@ -28,9 +28,7 @@ public class Sort {
             boolean flag = false;
             for (int j = 0; j < n - 1 - i; j++) {
                 if (a[j] > a[j + 1]) {
-                    int temp = a[j];
-                    a[j] = a[j + 1];
-                    a[j + 1] = temp;
+                    swap(a, j, j + 1);
                     //表示有数据交换
                     flag = true;
                 }
@@ -95,9 +93,7 @@ public class Sort {
                 }
             }
             if (i != min) {
-                int temp = a[i];
-                a[i] = a[min];
-                a[min] = temp;
+            swap(a,i,min);
             }
         }
 
@@ -168,6 +164,10 @@ public class Sort {
         }
     }
 
+    /**
+     * 快速排序，最坏O（N^2）,平均O(nlgn)
+     * @param a
+     */
     public void quickSort(int[] a) {
 
         int n = a.length;
@@ -189,7 +189,41 @@ public class Sort {
         quick(a, q + 1, right);
     }
 
+    /**
+     * 分区函数，利用类似选择排序算法，原地分区
+     * @param a
+     * @param left
+     * @param right
+     * @return
+     */
     private int parition(int[] a, int left, int right) {
+        int prvot = a[right];
+        int i = left;
+        for (int j = left;j <= (right - 1);j++) {
+            if (a[j] < prvot) {
+                swap(a, i, j);
+                i = i + 1;
+            }
+        }
+        swap(a, i, right);
+        return i;
+    }
+
+    public void swap(int[] a, int i, int j) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+
+
+    /**
+     * 分区函数，构建两个临时十足，占用空间大，不是原地排序算法
+     * @param a
+     * @param left
+     * @param right
+     * @return
+     */
+    private int parition2(int[] a, int left, int right) {
 
         int prvot = right;
         int start = left;
