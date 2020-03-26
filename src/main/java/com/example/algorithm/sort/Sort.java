@@ -118,14 +118,14 @@ public class Sort {
         merge(a, 0, n - 1);
     }
 
-    private void merge(int[] a, int p, int r) {
-        if (p >= r) {
+    private void merge(int[] a, int left, int right) {
+        if (left >= right) {
             return;
         }
-        int q = (p + r) / 2;
-        merge(a, p, q);
-        merge(a, q + 1, r);
-        mergeArray(a, p, q, r);
+        int mid = (left + right) / 2;
+        merge(a, left, mid);
+        merge(a, mid + 1, right);
+        mergeArray(a, left, mid, right);
     }
 
 
@@ -154,7 +154,7 @@ public class Sort {
         }
 
         // 把剩余数组合并进去
-        while (i <= left) {
+        while (i <= mid) {
             tmp[k++] = a[i++];
         }
         while (j <= right) {
@@ -163,14 +163,63 @@ public class Sort {
 
         // 临时数组搬移到原来数组
         k = 0;
-        while (left < right) {
+        while (left <= right) {
             a[left++] = tmp[k++];
         }
     }
 
-    public void quickSort(int [] a){
+    public void quickSort(int[] a) {
 
+        int n = a.length;
+        if (n <= 1) {
+            return;
+        }
 
+        quick(a, 0, n - 1);
+
+    }
+
+    private void quick(int[] a, int left, int right) {
+
+        if (left >= right) {
+            return;
+        }
+        int q = parition(a, left, right);
+        quick(a, left, q - 1);
+        quick(a, q + 1, right);
+    }
+
+    private int parition(int[] a, int left, int right) {
+
+        int prvot = right;
+        int start = left;
+
+        //复制到两个数据
+        int[] minTmp = new int[right + left];
+        int[] maxTmp = new int[right + left];
+
+        int min = 0;
+        int max = 0;
+        //这里要是<,不能用<=  排除选择的分区元素
+        while (start < right) {
+            if (a[prvot] > a[start]) {
+                minTmp[min++] = a[start++];
+            } else {
+                maxTmp[max++] = a[start++];
+            }
+        }
+
+        // 合并转移到原数组
+        int k = 0;
+        while (k < min) {
+            a[left++] = minTmp[k++];
+        }
+        a[left++] = a[prvot];
+        k = 0;
+        while (k < max) {
+            a[left++] = maxTmp[k++];
+        }
+        return prvot;
     }
 
 }
