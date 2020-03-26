@@ -75,4 +75,8 @@ public class Sort {
 
     }
 
+
+    public void quickSort(int [] a){}
+
+
 }

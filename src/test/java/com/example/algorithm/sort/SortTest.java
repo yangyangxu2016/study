@@ -41,5 +41,9 @@ class SortTest {
         Assert.assertArrayEquals(b, a);
     }
 
-
+    @Test
+    void quickSort() {
+        sort.quickSort(a);
+        Assert.assertArrayEquals(b, a);
+    }
 }
