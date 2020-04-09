@@ -1,13 +1,12 @@
 package com.example;
 
 import com.example.filter.CustomFilter;
-import com.xuyy.user.EnableUserClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 
-@EnableUserClient
+//@EnableUserClient
 @SpringBootApplication
 public class DemoApplication {
 

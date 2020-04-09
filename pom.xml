@@ -50,11 +50,11 @@
         </dependency>
 
         <!--  自定义starter工具-->
-        <dependency>
-            <groupId>com.xuyy</groupId>
-            <artifactId>springboot-starter-demo</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.xuyy</groupId>-->
+<!--            <artifactId>springboot-starter-demo</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--        </dependency>-->
 
 
         <!--  start 数据库-->
