@@ -1,14 +1,22 @@
 package com.example;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.After;
+import org.junit.Before;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import static org.junit.jupiter.api.Assertions.*;
+//@SpringBootTest
+//@RunWith(SpringRunner.class)
+public class DemoApplicationTest {
 
-@SpringBootTest
-class DemoApplicationTest {
+    public Logger log = LoggerFactory.getLogger(this.getClass());
 
-    @Test
-    void main() {
+    @Before
+    public void setUp() {
+
+    }
+
+    @After
+    public void tearDown() {
     }
 }

@@ -1,6 +1,8 @@
 package com.example.algorithm.sort;
 
 
+import org.springframework.stereotype.Component;
+
 /**
  * @Description: 排序
  * @Param:
@@ -8,6 +10,7 @@ package com.example.algorithm.sort;
  * @Author: 徐阳阳
  * @Date: 2020/3/24
  */
+@Component
 public class Sort {
 
 
@@ -24,7 +27,7 @@ public class Sort {
         }
         int n = a.length;
 
-        for (int i = 0; i < n ; i++) {
+        for (int i = 0; i < n; i++) {
             boolean flag = false;
             for (int j = 0; j < n - 1 - i; j++) {
                 if (a[j] > a[j + 1]) {
