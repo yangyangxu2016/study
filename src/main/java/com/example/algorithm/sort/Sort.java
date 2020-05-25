@@ -96,7 +96,7 @@ public class Sort {
                 }
             }
             if (i != min) {
-            swap(a,i,min);
+                swap(a, i, min);
             }
         }
 

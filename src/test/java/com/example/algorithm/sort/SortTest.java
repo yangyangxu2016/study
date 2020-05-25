@@ -6,7 +6,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class SortTest extends DemoApplicationTest {
 
@@ -59,5 +62,39 @@ public class SortTest extends DemoApplicationTest {
     public void quickSort() {
         sort.quickSort(a);
         Assert.assertArrayEquals(b, a);
+    }
+
+    @Test
+    public void quickNull() {
+        List<Ext> extList = new ArrayList<>();
+        List<String> ids = extList.stream().map(ext -> {
+            return ext.getId();
+        }).collect(Collectors.toList());
+
+    }
+
+    public class Ext {
+        private String id;
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+    }
+
+    public static void main(String[] args) {
+        List<Ext> extList = null;
+
+        for (Ext ext : extList) {
+
+
+        }
+
+//        List<String> ids = extList.stream().map(ext -> {
+//            return ext.getId();
+//        }).collect(Collectors.toList());
     }
 }

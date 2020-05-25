@@ -2,6 +2,7 @@ package com.example.algorithm.sort;
 
 import com.example.DemoApplicationTest;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -33,5 +34,24 @@ public class Sort2Test extends DemoApplicationTest {
     @Test
     public void quickSort() {
         sort2.quickSort(a);
+        Assert.assertArrayEquals(b,a);
+    }
+
+    @Test
+    public void bubbleSort() {
+        sort2.bubbleSort(a);
+        Assert.assertArrayEquals(b,a);
+    }
+
+    @Test
+    public void selectSort() {
+        sort2.selectSort(a);
+        Assert.assertArrayEquals(b,a);
+    }
+
+    @Test
+    public void insertSort() {
+        sort2.insertSort(a);
+        Assert.assertArrayEquals(b,a);
     }
 }
