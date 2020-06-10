@@ -32,7 +32,8 @@ public class ThreadLocalDemo08 {
         }
         threadPoll.shutdown();
         threadPoll.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-        if (threadPoll.isShutdown()) {
+        //
+        if (threadPoll.isTerminated()) {
             long et = System.currentTimeMillis();
             System.out.println("耗时：" + (et - st) + "秒");
         }
