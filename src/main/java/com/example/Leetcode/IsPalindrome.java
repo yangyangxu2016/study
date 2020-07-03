@@ -12,21 +12,21 @@ public class IsPalindrome {
      * @param head
      * @return
      */
-    public boolean isPalindrome(ListNode head) {
+    public boolean isPalindrome(XListNode head) {
         if (head == null || head.next == null) {
             return true;
         }
 
 //    1.利用快慢指针找到链表中点（后半链表的头结点）
 //     链表长度为n，后半链表的头结点为(n+1)/2+1
-        ListNode slow = head;
-        ListNode fast = head;
+        XListNode slow = head;
+        XListNode fast = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
 //       2.反转后半部分链表
-        ListNode reverseHead = reverseList(slow);
+        XListNode reverseHead = reverseList(slow);
 
         while (head != null && reverseHead != null) {
             if (head.var != reverseHead.var) {
@@ -38,13 +38,13 @@ public class IsPalindrome {
         return true;
     }
 
-    private ListNode reverseList(ListNode head) {
+    private XListNode reverseList(XListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode p = null;
+        XListNode p = null;
         while (head != null) {
-            ListNode tempListNode = head.next;
+            XListNode tempListNode = head.next;
             head.next = p;
             p = head;
             head = tempListNode;

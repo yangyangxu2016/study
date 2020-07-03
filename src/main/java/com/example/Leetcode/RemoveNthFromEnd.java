@@ -17,9 +17,9 @@ public class RemoveNthFromEnd {
      * @param head
      * @return
      */
-    public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode slow = head;
-        ListNode fast = head;
+    public XListNode removeNthFromEnd(XListNode head, int n) {
+        XListNode slow = head;
+        XListNode fast = head;
 
         for (int i = 0; i < n; i++) {
             fast = fast.next;
@@ -44,13 +44,13 @@ public class RemoveNthFromEnd {
      * @param n
      * @return
      */
-    public ListNode removeNthFromEnd2(ListNode head, int n) {
+    public XListNode removeNthFromEnd2(XListNode head, int n) {
         if (head == null) {
             return null;
         }
 
         int total = 0;
-        ListNode curListNode = head;
+        XListNode curListNode = head;
         while (curListNode != null) {
             total++;
             curListNode = curListNode.next;
@@ -67,7 +67,7 @@ public class RemoveNthFromEnd {
         }
 
         curListNode = head;
-        ListNode preListNode = head;
+        XListNode preListNode = head;
         for (int i = 0; i < index; i++) {
             preListNode = curListNode;
             curListNode = curListNode.next;

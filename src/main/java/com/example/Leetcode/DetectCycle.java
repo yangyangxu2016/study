@@ -7,10 +7,10 @@ package com.example.Leetcode;
  */
 public class DetectCycle {
 
-    public ListNode detectCycle(ListNode head) {
+    public XListNode detectCycle(XListNode head) {
 
-        ListNode slow = head;
-        ListNode fast = head;
+        XListNode slow = head;
+        XListNode fast = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;

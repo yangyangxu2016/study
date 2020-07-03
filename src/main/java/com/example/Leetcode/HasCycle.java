@@ -9,9 +9,9 @@ package com.example.Leetcode;
 public class HasCycle {
 
 
-    public boolean hasCycle(ListNode head) {
-        ListNode fast = head;
-        ListNode slow = head;
+    public boolean hasCycle(XListNode head) {
+        XListNode fast = head;
+        XListNode slow = head;
 
         while (fast != null && fast.next != null) {
             slow = slow.next;
