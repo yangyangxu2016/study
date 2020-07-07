@@ -7,6 +7,8 @@ import org.ehcache.config.builders.CacheConfigurationBuilder;
 import org.ehcache.config.builders.CacheManagerBuilder;
 import org.ehcache.config.builders.ResourcePoolsBuilder;
 
+import java.util.concurrent.Executors;
+
 public class EhCacheExample {
 
     public static void main(String[] args) {
@@ -26,5 +28,6 @@ public class EhCacheExample {
         System.out.println(value);
 
         cacheManager.close();
+        Executors
     }
 }
