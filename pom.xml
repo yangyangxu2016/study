@@ -26,16 +26,17 @@
 
     <dependencies>
 
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework</groupId>-->
-        <!--            <artifactId>spring-beans</artifactId>-->
-        <!--            <version>5.2.2.RELEASE</version>-->
-        <!--        </dependency>-->
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework</groupId>-->
-        <!--            <artifactId>spring-context</artifactId>-->
-        <!--            <version>5.2.2.RELEASE</version>-->
-        <!--        </dependency>-->
+        <!--  start 数据库-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <!--end 数据库-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -51,18 +52,6 @@
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <!--服务客户端 -->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
-<!--        </dependency>-->
-        <!-- feign -->
-        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-openfeign -->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-openfeign</artifactId>-->
-<!--            <version>2.2.3.RELEASE</version>-->
-<!--        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -74,18 +63,6 @@
 <!--            <artifactId>spring-boot-starter-data-jpa</artifactId>-->
 <!--        </dependency>-->
 
-
-        <!--  自定义starter工具-->
-<!--                <dependency>-->
-<!--                    <groupId>com.xuyy</groupId>-->
-<!--                    <artifactId>springboot-starter-demo</artifactId>-->
-<!--                    <version>0.0.1-SNAPSHOT</version>-->
-<!--                </dependency>-->
-
-        <!--  start 数据库-->
-
-        <!--end 数据库-->
-
         <!--start zookeeper-->
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
@@ -96,11 +73,6 @@
             <groupId>com.101tec</groupId>
             <artifactId>zkclient</artifactId>
             <version>0.10</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.curator</groupId>
-            <artifactId>curator-framework</artifactId>
-            <version>2.11.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.curator</groupId>
@@ -127,6 +99,13 @@
             <groupId>com.baidu</groupId>
             <artifactId>jprotobuf</artifactId>
             <version>2.1.2</version>
+            <exclusions>
+                <!-- 排除javassist-->
+                <exclusion>
+                    <groupId>javassist</groupId>
+                    <artifactId>javassist</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.caucho</groupId>
@@ -147,6 +126,13 @@
             <groupId>org.msgpack</groupId>
             <artifactId>msgpack</artifactId>
             <version>0.6.12</version>
+            <exclusions>
+                <!-- 排除javassist-->
+                <exclusion>
+                    <groupId>javassist</groupId>
+                    <artifactId>javassist</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!--  end 序列号 -->
 

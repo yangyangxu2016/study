@@ -8,7 +8,6 @@ public class ArrayTest {
 
 
     public static void main(String[] args) {
-
         int[] a = {1, 1, 3, 3, 4, 7, 8};
 
         //求数组中最多次数
