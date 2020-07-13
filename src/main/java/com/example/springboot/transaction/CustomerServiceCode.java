@@ -28,7 +28,7 @@ public class CustomerServiceCode {
         if (customer.getId()!=null)
             throw new RuntimeException("用户已经存在");
         DefaultTransactionDefinition def = new DefaultTransactionDefinition();
-        def.setIsolationLevel(TransactionDefinition.ISOLATION_SERIALIZABLE);
+//        def.setIsolationLevel(TransactionDefinition.ISOLATION_SERIALIZABLE);
         def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
         def.setTimeout(15);
        TransactionStatus status= transactionManager.getTransaction(def);
