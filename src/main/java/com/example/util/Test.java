@@ -1,14 +1,12 @@
 package com.example.util;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 public class Test {
 
     public static void main(String[] args) {
-        List<Long> extIds = null;
-        extIds.stream().forEach(s->{
-            System.out.println(s);
-        });
+        int[] temp = {6,5,4,3,2,1};
     }
+
+
 }
